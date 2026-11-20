@@ -1,0 +1,38 @@
+name: Update Google Scholar Citations
+
+on:
+  schedule:
+    # Runs every Sunday at 00:00 UTC
+    - cron: '0 0 * * 0'
+  workflow_dispatch: # Allows manual trigger from GitHub UI anytime
+
+permissions:
+  contents: write
+
+jobs:
+  update-scholar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run Citation Updater Script
+        run: |
+          python scripts/fetch_scholar.py
+
+      - name: Commit and Push if updated
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add js/data.js
+          if ! git diff --staged --quiet; then
+            git commit -m "Auto-update scholar citations [skip ci]"
+            git push
+          else
+            echo "No citation changes detected."
+          fi
