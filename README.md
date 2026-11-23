@@ -27,12 +27,12 @@ Navigation: the header **Levels** button (or `M`) opens a full-screen level map 
 
 Google Scholar profile `YzfuK8AAAAAJ` (checked November 2026):
 
-- 9,315 citations
+- 9,351 citations
 - h-index 35
 - i10-index 59
-- 75 publications
+- 81 publications
 
-CVN FECYT record `0000-0003-4296-2876` (dated May 2026): 38 journal articles (34 with impact factor, 20 Q1, 11 top decile), 35 conference papers and 3 book chapters.
+CVN FECYT record `0000-0003-4296-2876` (dated May 2026): 41 journal articles (22 Q1), 37 conference papers and 3 book chapters.
 
 Recognition: Stanford/Elsevier **Top 2%** — single-year since 2021 and career-long since 2026. Metrics live in `js/data.js` and can be refreshed with the scripts below.
 
