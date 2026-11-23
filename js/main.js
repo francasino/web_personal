@@ -346,8 +346,6 @@
      ========================================================= */
   function renderProfile() {
     const p = siteData.profile;
-    const nameEl = $("#profileFullName");
-    if (nameEl) nameEl.textContent = p.fullName;
     const roleEl = $("#profileRole");
     if (roleEl) roleEl.textContent = isEn() ? p.title.en : p.title.es;
     const tagEl = $("#profileTagline");
@@ -364,13 +362,6 @@
     if (affEl) {
       affEl.textContent =
         `${p.affiliation.department} — ${p.affiliation.institution} (${p.affiliation.location})`;
-    }
-
-    const honors = $("#honorsList");
-    if (honors) {
-      honors.innerHTML = (isEn() ? p.honors.en : p.honors.es)
-        .map((h) => `<li>${h}</li>`)
-        .join("");
     }
 
     const bio = $("#profileBio");
@@ -518,13 +509,15 @@
   }
 
   function renderScholarStats() {
+    const el = $("#scholarStats");
+    if (!el) return;
     const p = siteData.profile;
     const byId = Object.fromEntries(p.metrics.map((m) => [m.id, m]));
     const cites = byId.citations ? fmt(byId.citations.val) : "—";
     const h = byId.hindex ? byId.hindex.val : "—";
     const i10 = byId.i10 ? byId.i10.val : "—";
     const pubs = byId.publications ? byId.publications.val : "—";
-    $("#scholarStats").innerHTML = isEn()
+    el.innerHTML = isEn()
       ? `<strong>${cites}+</strong> citations · <strong>h-index ${h}</strong> · <strong>i10-index ${i10}</strong> · <strong>${pubs}+</strong> publications · <strong>Stanford Top 2%</strong>`
       : `<strong>${cites}+</strong> citas · <strong>índice h ${h}</strong> · <strong>índice i10 ${i10}</strong> · <strong>${pubs}+</strong> publicaciones · <strong>Top 2% Stanford</strong>`;
   }
@@ -591,7 +584,6 @@
           <p class="pub__top">
             <span class="pub__num">${String(start + i + 1).padStart(2, "0")}</span>
             <span>${pub.year}</span>
-            ${pub.highlight ? `<span class="pub__flag">${dict.keyPaper}</span>` : ""}
             ${pub.citations ? `<span class="pub__cites">${fmt(pub.citations)} ${dict.citations}</span>` : ""}
           </p>
           <h3 class="pub__title">
@@ -651,17 +643,32 @@
       (p) => state.programme === "all" || p.programme === state.programme
     );
     const list = $("#projectArchive");
+    if (!list) return;
     if (!filtered.length) {
       list.innerHTML = "";
       return;
     }
-    list.innerHTML = filtered.map((p) => `
-      <li class="archive-item">
+    list.innerHTML = filtered.map((p) => {
+      const inner = `
         <span class="archive-item__code">${p.code}</span>
         <span class="archive-item__grant">${p.grant}</span>
         <span class="archive-item__type">${p.type}</span>
-      </li>
-    `).join("");
+      `;
+      if (p.url) {
+        return `
+          <li class="archive-item">
+            <a class="archive-item__link" href="${p.url}" target="_blank" rel="noopener noreferrer">
+              ${inner}
+              <span class="archive-item__arrow" aria-hidden="true">↗</span>
+              <span class="visually-hidden"> (opens in a new tab)</span>
+            </a>
+          </li>`;
+      }
+      return `
+        <li class="archive-item">
+          <div class="archive-item__static">${inner}</div>
+        </li>`;
+    }).join("");
   }
 
   function renderRepoTree() {

@@ -43,7 +43,7 @@ const siteData = {
         id: "scholar",
         name: "Google Scholar",
         url: "https://scholar.google.com/citations?user=YzfuK8AAAAAJ&hl=en",
-        metric: "9,315 citations · h-index 35",
+        metric: "9,351 citations · h-index 35",
         tag: "Verified"
       },
       {
@@ -97,10 +97,10 @@ const siteData = {
       }
     ],
     metrics: [
-      { id: "citations", val: 9315, prefix: "+", labelEn: "Citations", labelEs: "Citas" },
+      { id: "citations", val: 9351, prefix: "+", labelEn: "Citations", labelEs: "Citas" },
       { id: "hindex", val: 35, prefix: "", labelEn: "h-index", labelEs: "Índice h" },
       { id: "i10", val: 59, prefix: "", labelEn: "i10-index", labelEs: "Índice i10" },
-      { id: "publications", val: 75, prefix: "+", labelEn: "Publications", labelEs: "Publicaciones" },
+      { id: "publications", val: 76, prefix: "+", labelEn: "Publications", labelEs: "Publicaciones" },
       { id: "ranking", val: "Top 2%", prefix: "", labelEn: "Stanford · single-year since 2021 · career-long since 2026", labelEs: "Stanford · anual desde 2021 · trayectoria completa desde 2026" }
     ],
     honors: {
@@ -303,18 +303,18 @@ const siteData = {
   ],
 
   projectArchive: [
-    { code: "ALUNA", grant: "GA 101084929", type: "Horizon Europe", programme: "eu" },
-    { code: "YAKSHA", grant: "GA 780498", type: "Horizon 2020", programme: "eu" },
-    { code: "OPERANDO", grant: "GA 653704", type: "Horizon 2020", programme: "eu" },
-    { code: "PRACTICIES", grant: "GA 740072", type: "Horizon 2020", programme: "eu" },
-    { code: "MITIGATE", grant: "GA 653212", type: "Horizon 2020", programme: "eu" },
-    { code: "GAME-ABLING", grant: "FP7-SME-2012-1-315032", type: "FP7", programme: "eu" },
-    { code: "SIMPATIC", grant: "RECERCAIXA 2013–2015", type: "National / AGAUR", programme: "national" },
-    { code: "ARES", grant: "CONSOLIDER INGENIO 2010", type: "National", programme: "national" },
-    { code: "CO-PRIVACY", grant: "TIN2011-27076-C03-0", type: "National", programme: "national" },
-    { code: "SidNet", grant: "COST CA24169", type: "COST Action", programme: "eu" },
-    { code: "CRYPTACUS", grant: "COST IC1403", type: "COST Action", programme: "eu" },
-    { code: "GOODBROTHER", grant: "COST CA19121", type: "COST Action", programme: "eu" }
+    { code: "ALUNA", grant: "GA 101084929", type: "Horizon Europe", programme: "eu", url: "https://alunaproject.eu/" },
+    { code: "YAKSHA", grant: "GA 780498", type: "Horizon 2020", programme: "eu", url: "https://cordis.europa.eu/project/id/780498" },
+    { code: "OPERANDO", grant: "GA 653704", type: "Horizon 2020", programme: "eu", url: "https://cordis.europa.eu/project/id/653704" },
+    { code: "PRACTICIES", grant: "GA 740072", type: "Horizon 2020", programme: "eu", url: "https://cordis.europa.eu/project/id/740072" },
+    { code: "MITIGATE", grant: "GA 653212", type: "Horizon 2020", programme: "eu", url: "https://cordis.europa.eu/project/id/653212" },
+    { code: "GAME-ABLING", grant: "FP7-SME-2012-1-315032", type: "FP7", programme: "eu", url: "https://cordis.europa.eu/project/id/315032" },
+    { code: "SIMPATIC", grant: "RECERCAIXA 2013–2015", type: "National / AGAUR", programme: "national", url: "https://recercaixa.caixabank.com/" },
+    { code: "ARES", grant: "CONSOLIDER INGENIO 2010", type: "National", programme: "national", url: "http://ares.urv.cat/" },
+    { code: "CO-PRIVACY", grant: "TIN2011-27076-C03-0", type: "National", programme: "national", url: "https://deim.urv.cat/" },
+    { code: "SidNet", grant: "COST CA24169", type: "COST Action", programme: "eu", url: "https://www.cost.eu/actions/CA24169/" },
+    { code: "CRYPTACUS", grant: "COST IC1403", type: "COST Action", programme: "eu", url: "https://www.cost.eu/actions/IC1403/" },
+    { code: "GOODBROTHER", grant: "COST CA19121", type: "COST Action", programme: "eu", url: "https://www.cost.eu/actions/CA19121/" }
   ],
 
   publications: [
@@ -1055,6 +1055,36 @@ const siteData = {
       width: 1200,
       height: 900,
       tag: "Conference"
+    },
+    {
+      titleEn: "UCAmI 2024, Ulster University",
+      titleEs: "UCAmI 2024, Ulster University",
+      descEn: "Keynote presentation on Ambient Assisted Living (AAL) and large language models at Ulster University, Belfast.",
+      descEs: "Presentación plenaria sobre entornos asistenciales (AAL) y grandes modelos de lenguaje en Ulster University, Belfast.",
+      image: "assets/ucami-2024.jpg",
+      width: 1024,
+      height: 771,
+      tag: "Keynote"
+    },
+    {
+      titleEn: "Enterprise Defense Strategies Keynote",
+      titleEs: "Conferencia de Estrategias de Defensa Empresarial",
+      descEn: "Keynote on layered corporate cybersecurity, governance frameworks, and AI-driven defense strategies.",
+      descEs: "Conferencia plenaria sobre ciberseguridad empresarial en capas, marcos de gobernanza y defensa basada en IA.",
+      image: "assets/keynote-defense.jpg",
+      width: 1024,
+      height: 682,
+      tag: "Keynote"
+    },
+    {
+      titleEn: "C1B3RWALL 2024, Escuela Nacional de Policía",
+      titleEs: "C1B3RWALL 2024, Escuela Nacional de Policía",
+      descEn: "Presentation of the HEROES project and novel OSINT strategies against online child sexual exploitation and human trafficking at C1B3RWALL, Ávila.",
+      descEs: "Presentación del proyecto HEROES y estrategias OSINT avanzadas contra la explotación infantil y la trata en la Escuela Nacional de Policía, Ávila.",
+      image: "assets/c1b3rwall-2024.jpg",
+      width: 1024,
+      height: 576,
+      tag: "Keynote"
     }
   ],
 
